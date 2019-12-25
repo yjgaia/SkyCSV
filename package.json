@@ -4,7 +4,7 @@
 	"description": "CSV Editor",
 	"version": "0.0.1",
 	"license": "MIT",
-	"publisher": "Hanul <hanul@hanul.me>",
+	"publisher": "Hanul",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
