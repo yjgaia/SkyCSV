@@ -1,0 +1,96 @@
+{
+	"name": "sky-csv",
+	"displayName": "Sky CSV",
+	"description": "CSV Editor",
+	"version": "0.0.1",
+	"license": "MIT",
+	"publisher": "Hanul <hanul@hanul.me>",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"Sky",
+		"CSV"
+	],
+	"preview": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Hanul/SkyCSV.git"
+	},
+	"activationEvents": [
+		"onCommand:sky-csv.edit"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "csv",
+				"extensions": [
+					".csv"
+				],
+				"aliases": [
+					"CSV"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "sky-csv.edit",
+				"category": "Sky CSV",
+				"title": "Edit with Sky CSV"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceLangId == csv",
+					"command": "sky-csv.edit",
+					"group": "navigation"
+				},
+				{
+					"when": "resourceLangId == CSV",
+					"command": "sky-csv.edit",
+					"group": "navigation"
+				}
+			],
+			"editor/title": [
+				{
+					"when": "editorLangId == csv && resourceScheme != sky-csv",
+					"command": "sky-csv.edit",
+					"group": "navigation"
+				},
+				{
+					"when": "editorLangId == CSV && resourceScheme != sky-csv",
+					"command": "sky-csv.edit",
+					"group": "navigation"
+				}
+			],
+			"editor/title/context": [
+				{
+					"when": "resourceLangId == csv && resourceScheme != sky-csv",
+					"command": "sky-csv.edit",
+					"group": "navigation"
+				},
+				{
+					"when": "resourceLangId == CSV && resourceScheme != sky-csv",
+					"command": "sky-csv.edit",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"eslint": "^6.6.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.2.2"
+	}
+}
