@@ -2,7 +2,7 @@
 	"name": "sky-csv",
 	"displayName": "Sky CSV",
 	"description": "CSV Editor",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"publisher": "Hanul",
 	"engines": {

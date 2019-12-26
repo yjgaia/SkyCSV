@@ -3,9 +3,9 @@ const FS = require('fs');
 const Path = require('path');
 
 exports.activate = (context) => {
-	context.subscriptions.push(VSCode.commands.registerCommand('sky-csv.edit', () => {
+	context.subscriptions.push(VSCode.commands.registerCommand('sky-csv.edit', (uri) => {
 
-		let filePath = VSCode.window.activeTextEditor.document.fileName;
+		let filePath = uri.fsPath;
 		let fileName = Path.basename(filePath);
 
 		let webView = VSCode.window.createWebviewPanel(
@@ -17,14 +17,12 @@ exports.activate = (context) => {
 			}
 		).webview;
 
-		let editor = VSCode.window.activeTextEditor;
-
 		webView.onDidReceiveMessage((message) => {
 
 			if (message.command === 'loadData') {
 				webView.postMessage({
 					command: 'loadData',
-					content: editor.document.getText()
+					content: FS.readFileSync(filePath, 'utf8')
 				});
 			}
 
