@@ -1,3 +1,7 @@
 node_modules
 .vscode-test/
 *.vsix
+/public/upload/*
+/__DDD_FILES/*
+.DS_Store
+.history
