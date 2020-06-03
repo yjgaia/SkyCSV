@@ -42,7 +42,7 @@ EVENT('keydown', (e) => {
 
             VSCode.postMessage({
                 command: 'save',
-                content: content
+                content: content.trim() + '\n'
             })
             e.stopDefault();
         }
