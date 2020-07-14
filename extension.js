@@ -13,7 +13,8 @@ exports.activate = (context) => {
 			fileName,
 			VSCode.ViewColumn.One,
 			{
-				enableScripts: true
+				enableScripts: true,
+				localResourceRoots: [VSCode.Uri.file(Path.join(context.extensionPath, 'public'))]
 			}
 		).webview;
 
@@ -33,7 +34,7 @@ exports.activate = (context) => {
 		});
 
 		let resource = (path) => {
-			return 'vscode-resource:' + Path.join(context.extensionPath, path).replace(/\\/g, '/');
+			return webView.asWebviewUri(VSCode.Uri.file(Path.join(context.extensionPath, 'public', path)));
 		};
 
 		webView.html = `<!DOCTYPE html>
